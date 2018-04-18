@@ -1,57 +1,27 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package model;
 
 import java.io.Serializable;
 import java.util.Date;
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 
 /**
  *
  * @author mpluas
  */
-@Entity
-@Table(name = "libros")
 public class Libros implements Serializable {
 
-    private static final long serialVersionUID = 1L;
-    @Id
-    @Basic(optional = false)
-    @Column(name = "isbn")
     private String isbn;
-    @Basic(optional = false)
-    @Column(name = "titulo")
     private String titulo;
-    @Column(name = "descripcion")
     private String descripcion;
-    @Column(name = "nombre_autor")
     private String nombreAutor;
-    @Column(name = "publicacion")
-    @Temporal(TemporalType.DATE)
-    private Date publicacion;
-    @Column(name = "fecha_registro")
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date fechaRegistro;
-    @Basic(optional = false)
-    @Column(name = "categoria_id")
+    private String publicacion;
+    private String fechaRegistro;
     private int categoriaId;
-    @Basic(optional = false)
-    @Column(name = "editorial_nit")
     private String editorialNit;
     
     public Libros() {
     }
 
-    public Libros(String isbn, String titulo, String descripcion, String nombreAutor, Date publicacion, Date fechaRegistro, int categoriaId, String editorialNit) {
+    public Libros(String isbn, String titulo, String descripcion, String nombreAutor, String publicacion, String fechaRegistro, int categoriaId, String editorialNit) {
         this.isbn = isbn;
         this.titulo = titulo;
         this.descripcion = descripcion;
@@ -94,19 +64,19 @@ public class Libros implements Serializable {
         this.nombreAutor = nombreAutor;
     }
 
-    public Date getPublicacion() {
+    public String getPublicacion() {
         return publicacion;
     }
 
-    public void setPublicacion(Date publicacion) {
+    public void setPublicacion(String publicacion) {
         this.publicacion = publicacion;
     }
 
-    public Date getFechaRegistro() {
+    public String getFechaRegistro() {
         return fechaRegistro;
     }
 
-    public void setFechaRegistro(Date fechaRegistro) {
+    public void setFechaRegistro(String fechaRegistro) {
         this.fechaRegistro = fechaRegistro;
     }
 

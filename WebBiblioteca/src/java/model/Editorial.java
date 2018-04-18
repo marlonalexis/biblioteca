@@ -1,39 +1,18 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package model;
 
 import java.io.Serializable;
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
 
 /**
  *
  * @author mpluas
  */
-@Entity
-@Table(name = "editorial")
 public class Editorial implements Serializable {
 
-    private static final long serialVersionUID = 1L;
-    @Id
-    @Basic(optional = false)
-    @Column(name = "nit")
     private String nit;
-    @Column(name = "nombre")
     private String nombre;
-    @Column(name = "telefono")
     private String telefono;
-    @Column(name = "direccion")
     private String direccion;
-    @Column(name = "email")
     private String email;
-    @Column(name = "sitioweb")
     private String sitioweb;
 
     public Editorial() {
