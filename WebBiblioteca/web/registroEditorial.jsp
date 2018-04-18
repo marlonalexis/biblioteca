@@ -1,7 +1,7 @@
 <%-- 
-    Document   : ListarLibros
-    Created on : 17/04/2018, 21:51:00
-    Author     : mpluas
+    Document   : registroEditorial
+    Created on : 18/04/2018, 10:30:55
+    Author     : mplua
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -19,7 +19,7 @@
 	</head>
 
 	<body class="no-skin">
-           <%@include file="nav.jsp" %>
+            <%@include file="nav.jsp" %>
 
 		<div class="main-container ace-save-state" id="main-container">
 			<script type="text/javascript">
@@ -82,7 +82,7 @@
 						<b class="arrow"></b>
 
 						<ul class="submenu">
-							<li class="active">
+							<li class="">
                                                             <a href="listarLibros.jsp">
 									<i class="menu-icon fa fa-caret-right"></i>
 									Lista de libros
@@ -99,8 +99,8 @@
 
 								<b class="arrow"></b>
 							</li>
-                                                        <li class="">
-								<a href="registroEditorial.jsp">
+                                                        <li class="active">
+                                                            <a href="registroEditorial.jsp">
 									<i class="menu-icon fa fa-caret-right"></i>
 									Registrar Editorial
 								</a>
@@ -233,137 +233,81 @@
 								<div class="row">
 									<div class="col-xs-12">
 										<div class="table-header">
-											Resultados de libros registrados
+											Registro de Editorial
 										</div>
 
 										<!-- div.table-responsive -->
 
 										<!-- div.dataTables_borderWrap -->
 										<div>
-											<table id="dynamic-table" class="table table-striped table-bordered table-hover">
-												<thead>
-													<tr>
-														<th>ISBN</th>
-														<th>Titulo</th>
-														<th class="hidden-480">Autor</th>
+                                                                                    <form action="EditorialControl" method="post" class="form-horizontal">
+<!-- Form Name -->
+<legend>Formulario de Registro</legend>
 
-														<th>
-															<i class="ace-icon fa fa-clock-o bigger-110 hidden-480"></i>
-															Fecha
-														</th>
-                                                                                                                <th>
-															
-															Editorial
-														</th>
-														<th class="hidden-480">Categoría</th>
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label">Nit:</label>  
+  <div class="col-md-5">
+  <input name="nit" type="text" placeholder="Nit">
+    
+  </div>
+</div>
 
-														<th></th>
-													</tr>
-												</thead>
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label">Nombre:</label>  
+  <div class="col-md-5">
+  <input name="nombre" type="text" placeholder="Nombre">
+    
+  </div>
+</div>
 
-												<tbody>
-													<tr>
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label">Telefono:</label>  
+  <div class="col-md-5">
+  <input name="telefono" type="text" placeholder="Telefono">
+    
+  </div>
+</div>
 
-														<td>
-														<a href="#">1254-3256-9856-652</a>
-														</td>
-														<td class="hidden-480">Introducción a desarrollo web con JSP</td>
-														<td>Christian Gámez</td>
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label">Direccion:</label>  
+  <div class="col-md-5">
+  <input name="direccion" type="text" placeholder="Direccion">
+    
+  </div>
+</div>
 
-														<td>2017-12-31</td>
-                                                                                                                <td><span class="label label-sm label-success">Planeta</span></td>
-                                                                                                                <td>
-															<span class="label label-sm label-success">Matemáticas</span>
-														</td>
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label">Email:</label>  
+  <div class="col-md-5">
+  <input name="email" type="text" placeholder="Email">
+    
+  </div>
+</div>
 
-														<td>
-															<div class="hidden-sm hidden-xs action-buttons">
-																<a class="blue" href="#">
-																	<i class="ace-icon fa fa-search-plus bigger-130"></i>
-																</a>
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label">Sitio Web:</label>  
+  <div class="col-md-5">
+  <input name="sitioweb" type="text" placeholder="Sitio Web">
+    
+  </div>
+</div>
+<button class="btn btn-success" type="submit">
+    <i class="fa fa-save"></i>
+    Registrar
+</button>
+<div>
+    <%=(request.getAttribute("mensaje")!=null?request.getAttribute("mensaje"):"")%>
+</div>
 
-																<a class="green" href="#">
-																	<i class="ace-icon fa fa-pencil bigger-130"></i>
-																</a>
+                                                                                    </form>
+										</div>
 
-																<a class="red" href="#">
-																	<i class="ace-icon fa fa-trash-o bigger-130"></i>
-																</a>
-															</div>
-
-															<div class="hidden-md hidden-lg">
-																<div class="inline pos-rel">
-																	<button class="btn btn-minier btn-yellow dropdown-toggle" data-toggle="dropdown" data-position="auto">
-																		<i class="ace-icon fa fa-caret-down icon-only bigger-120"></i>
-																	</button>
-
-																	<ul class="dropdown-menu dropdown-only-icon dropdown-yellow dropdown-menu-right dropdown-caret dropdown-close">
-																		<li>
-																			<a href="#" class="tooltip-info" data-rel="tooltip" title="View">
-																				<span class="blue">
-																					<i class="ace-icon fa fa-search-plus bigger-120"></i>
-																				</span>
-																			</a>
-																		</li>
-
-																		<li>
-																			<a href="#" class="tooltip-success" data-rel="tooltip" title="Edit">
-																				<span class="green">
-																					<i class="ace-icon fa fa-pencil-square-o bigger-120"></i>
-																				</span>
-																			</a>
-																		</li>
-
-																		<li>
-																			<a href="#" class="tooltip-error" data-rel="tooltip" title="Delete">
-																				<span class="red">
-																					<i class="ace-icon fa fa-trash-o bigger-120"></i>
-																				</span>
-																			</a>
-																		</li>
-																	</ul>
-																</div>
-															</div>
-														</td>
-													</tr>
-
-													
-													</tbody>
-												</table>
-											</div>
-
-											<div class="modal-footer no-margin-top">
-												<button class="btn btn-sm btn-danger pull-left" data-dismiss="modal">
-													<i class="ace-icon fa fa-times"></i>
-													Close
-												</button>
-
-												<ul class="pagination pull-right no-margin">
-													<li class="prev disabled">
-														<a href="#">
-															<i class="ace-icon fa fa-angle-double-left"></i>
-														</a>
-													</li>
-
-													<li class="active">
-														<a href="#">1</a>
-													</li>
-
-													<li>
-														<a href="#">2</a>
-													</li>
-
-													<li>
-														<a href="#">3</a>
-													</li>
-
-													<li class="next">
-														<a href="#">
-															<i class="ace-icon fa fa-angle-double-right"></i>
-														</a>
-													</li>
-												</ul>
-											</div>
 										</div><!-- /.modal-content -->
 									</div><!-- /.modal-dialog -->
 								</div>
@@ -374,8 +318,8 @@
 					</div><!-- /.page-content -->
 				</div>
 			</div><!-- /.main-content -->
-
-                        <%@include file="footer.jsp" %>               
+                        
+                        <%@include file="footer.jsp" %>  
 
 			<a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
 				<i class="ace-icon fa fa-angle-double-up icon-only bigger-110"></i>
